@@ -6,6 +6,7 @@
 package edu.eci.arsw.lab.Server;
 
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
@@ -16,60 +17,25 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  * @author Torres
  */
-public class Documento extends javax.swing.JFrame
+public class Documento
 {
 
-    private String texto; 
+    private String texto="Hola"; 
      private final String defaultPath="/tmp/";
     
     public Documento() {
-        /*Documento
-        documntar
-        jkgsjkf
-        jjij
-        uyuyuy
-        gyy*/
+      
+          
         initComponents();
-        this.setSize(800,600);
-        this.setVisible(true);
-        
-        textArea.addCaretListener(new CaretListener() {
-			
-			@Override
-			public void caretUpdate(CaretEvent e) {
-                            
-                            System.out.println(e);
-				int pos=e.getDot();
-				String cnt=textArea.getText();
-				int lastspace=cnt.lastIndexOf(" ", pos);
-				String word=null;
-				if (lastspace==-1){
-					word=cnt.substring(0,pos);	
-				}
-				else{
-					word=cnt.substring(lastspace+1,pos);	
-				}
-                                texto=word;
-                               
-                                
-				if (word!=null){
-                               
-					SwingUtilities.invokeLater(new Runnable()
-					{
-						public void run(){
-							textArea.getText();
-                                                        
-						}
-					});
-				}
-
-								
-			}
-
-            
-		});
+       
+        jf.setSize(800,600);
+        jf.setVisible(true);
+      
+       
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,7 +44,7 @@ public class Documento extends javax.swing.JFrame
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        jf=new JFrame();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         textjsp = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
@@ -91,13 +57,13 @@ public class Documento extends javax.swing.JFrame
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jf.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         textArea.setColumns(20);
         textArea.setRows(5);
         textjsp.setViewportView(textArea);
 
-        getContentPane().add(textjsp, java.awt.BorderLayout.CENTER);
+        jf.getContentPane().add(textjsp, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("File");
 
@@ -130,9 +96,9 @@ public class Documento extends javax.swing.JFrame
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        jf.setJMenuBar(jMenuBar1);
 
-        pack();
+        jf.pack();
     }// </editor-fold>                        
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -165,11 +131,12 @@ public class Documento extends javax.swing.JFrame
     }
 
     public String getTexto() {
-        return texto;
+        return textArea.getText();
     }
     
     
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify 
+    private javax.swing.JFrame jf;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JMenu jMenu1;
