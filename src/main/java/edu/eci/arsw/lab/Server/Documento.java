@@ -24,7 +24,7 @@ public class Documento
      private final String defaultPath="/tmp/";
     
     public Documento() {
-      
+      /*COMENTARIO*/
           
         initComponents();
        
