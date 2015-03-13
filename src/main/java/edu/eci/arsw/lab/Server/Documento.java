@@ -23,7 +23,8 @@ public class Documento extends javax.swing.JFrame
      private final String defaultPath="/tmp/";
     
     public Documento() {
-        /*Documento*/
+        /*Documento
+        documntar*/
         initComponents();
         this.setSize(800,600);
         this.setVisible(true);
