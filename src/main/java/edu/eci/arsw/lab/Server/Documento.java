@@ -24,7 +24,8 @@ public class Documento extends javax.swing.JFrame
     
     public Documento() {
         /*Documento
-        documntar*/
+        documntar
+        jkgsjkf*/
         initComponents();
         this.setSize(800,600);
         this.setVisible(true);
