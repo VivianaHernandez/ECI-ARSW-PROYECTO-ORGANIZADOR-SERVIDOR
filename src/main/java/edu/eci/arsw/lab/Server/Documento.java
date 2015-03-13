@@ -19,16 +19,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Documento extends javax.swing.JFrame
 {
 
-    private String texto;
-    
-    
-    
+    private String texto; 
      private final String defaultPath="/tmp/";
-    /**
-     * Creates new form GuordMainFrame
-     */
+    
     public Documento() {
-        
+        /*Documento*/
         initComponents();
         this.setSize(800,600);
         this.setVisible(true);
