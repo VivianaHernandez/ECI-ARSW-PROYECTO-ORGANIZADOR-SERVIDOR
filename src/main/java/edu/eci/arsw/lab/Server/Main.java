@@ -19,7 +19,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String args[])throws ConnectException {
-        /*Hola comentario 2*/
+        /*Hola comentario 2
+        tfhghh*/
             String thisHost= NetUtils.getIPAddress();
                 
             System.setProperty("java.rmi.server.hostname", thisHost);
