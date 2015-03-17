@@ -13,13 +13,9 @@ import javax.swing.event.CaretListener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- *
- * @author Torres
- */
 public class Documento
 {
-
+    /*prueba*/
     private String texto="Hola"; 
      private final String defaultPath="/tmp/";
     
