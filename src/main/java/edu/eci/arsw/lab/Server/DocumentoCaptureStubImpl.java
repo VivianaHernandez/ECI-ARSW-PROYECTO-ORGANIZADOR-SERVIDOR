@@ -33,20 +33,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-public class ScreenCaptureStubImpl extends UnicastRemoteObject implements ScreenCaptureStub{
+public class DocumentoCaptureStubImpl /*extends UnicastRemoteObject*/ implements DocumentoCaptureStub{
     
     private String texto="HOla";
     private Documento d=new Documento();
 
     
-    public ScreenCaptureStubImpl() throws RemoteException {
+    public DocumentoCaptureStubImpl() throws RemoteException {
 		super();
              
 	}
     
     
     @Override
-    public String getScreenShot() throws ScreenCaptureException {
+    public String getTexto() throws DocumentoCaptureException {
 
         texto=d.getTexto();
         System.out.println("texto: "+texto);
