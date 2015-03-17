@@ -49,8 +49,17 @@ public class DocumentoCaptureStubImpl /*extends UnicastRemoteObject*/ implements
     public String getTexto() throws DocumentoCaptureException {
 
         texto=d.getTexto();
-        System.out.println("texto: "+texto);
+    //    System.out.println("texto: "+texto);
         return texto;       
+    }
+    
+    
+    @Override
+    public void setTexto(String texto) throws DocumentoCaptureException {
+
+        d.setTexto(texto);
+        //System.out.println("texto: "+texto);
+        
     }
 
     

@@ -63,6 +63,8 @@ public class Documento
 
         jMenu1.setText("File");
 
+        
+        
         saveMenuItem.setText("save");
         saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class Documento
         jf.setJMenuBar(jMenuBar1);
 
         jf.pack();
+        
     }// </editor-fold>                        
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             

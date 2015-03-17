@@ -13,7 +13,7 @@
         <property name="serviceName" value="documentoCaptureStub"/>
         <property name="service" ref="documentoCaptureStub"/>
         <property name="serviceInterface" value="edu.eci.arsw.lab.Server.DocumentoCaptureStub"/>
-        <property name="registryPort" value="1022"/>
+        <property name="registryPort" value="3010"/>
     </bean>
     
   
