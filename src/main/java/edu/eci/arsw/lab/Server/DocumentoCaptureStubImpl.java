@@ -20,6 +20,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
@@ -33,7 +34,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-public class DocumentoCaptureStubImpl /*extends UnicastRemoteObject*/ implements DocumentoCaptureStub{
+public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements DocumentoCaptureStub{
     
     private String texto="HOla";
     private Documento d=new Documento();
@@ -55,11 +56,15 @@ public class DocumentoCaptureStubImpl /*extends UnicastRemoteObject*/ implements
     
     
     @Override
-    public void setTexto(String texto) throws DocumentoCaptureException {
+  public void setTexto(int Posicion,String texto) throws DocumentoCaptureException{
 
-        d.setTexto(texto);
-        //System.out.println("texto: "+texto);
+        //d.setTexto(texto);
+        System.out.println("palabras "+texto);
+        System.out.println("posicion "+Posicion);
         
+       /* for(int i=0;i<pal.size();i++){
+        System.out.println("palabras"+pal.getClass().getName());
+        }*/
     }
 
     
