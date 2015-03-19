@@ -58,7 +58,7 @@ public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements Doc
     @Override
   public void setTexto(int Posicion,String texto) throws DocumentoCaptureException{
 
-        //d.setTexto(texto);
+        d.setTexto(Posicion,texto);
         System.out.println("palabras "+texto);
         System.out.println("posicion "+Posicion);
         

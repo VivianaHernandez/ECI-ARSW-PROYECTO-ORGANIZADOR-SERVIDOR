@@ -126,8 +126,9 @@ public class Documento
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
         System.exit(0);
     }             
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setTexto(int Posicion, String texto) {
+        textArea.insert(texto, Posicion);
+        
     }
 
     public String getTexto() {
