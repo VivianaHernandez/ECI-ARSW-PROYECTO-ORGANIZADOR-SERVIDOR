@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public interface DocumentoCaptureStub {
 
-  public String getTexto() throws DocumentoCaptureException;
+  public Palabras getTexto() throws DocumentoCaptureException;
   public void setTexto(int Posicion,String texto) throws DocumentoCaptureException;
  
     
