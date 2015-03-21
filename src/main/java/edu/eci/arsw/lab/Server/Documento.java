@@ -11,16 +11,14 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
-import javax.swing.text.BadLocationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Documento
 {
     /*prueba*/
-    private String texto=""; 
+    private String texto="Hola"; 
      private final String defaultPath="/tmp/";
-     private String posi=null;
     
     public Documento() {
       /*COMENTARIO*/
@@ -129,16 +127,12 @@ public class Documento
         System.exit(0);
     }             
     public void setTexto(int Posicion, String texto) {
-        posi=texto;
-        posi= posi.substring(Posicion, Posicion+1);
-        textArea.insert(posi, Posicion);
+        textArea.insert(texto, Posicion);
         
     }
 
-    public Palabras getTexto() throws BadLocationException {
-        int len=1;
-        Palabras palabras=new Palabras (len,posi);
-        return palabras;
+    public String getTexto() {
+        return textArea.getText();
     }
     
     

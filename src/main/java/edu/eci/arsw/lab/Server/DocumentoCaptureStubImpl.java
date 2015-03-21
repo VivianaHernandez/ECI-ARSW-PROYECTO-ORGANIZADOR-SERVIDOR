@@ -30,14 +30,13 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
-import javax.swing.text.BadLocationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements DocumentoCaptureStub{
     
-    private String texto="";
+    private String texto="HOla";
     private Documento d=new Documento();
 
     
@@ -48,17 +47,11 @@ public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements Doc
     
     
     @Override
-    public Palabras getTexto()  {
+    public String getTexto() throws DocumentoCaptureException {
 
-        try {
-            Palabras pal= new Palabras();
-            texto=d.getTexto();
-            System.out.println("posiciiiiiiiion : "+texto);
-        } catch (BadLocationException ex) {
-            Logger.getLogger(DocumentoCaptureStubImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        texto=d.getTexto();
     //    System.out.println("texto: "+texto);
-        return null;       
+        return texto;       
     }
     
     
@@ -66,7 +59,6 @@ public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements Doc
   public void setTexto(int Posicion,String texto) throws DocumentoCaptureException{
 
         d.setTexto(Posicion,texto);
-        
         System.out.println("palabras "+texto);
         System.out.println("posicion "+Posicion);
         
