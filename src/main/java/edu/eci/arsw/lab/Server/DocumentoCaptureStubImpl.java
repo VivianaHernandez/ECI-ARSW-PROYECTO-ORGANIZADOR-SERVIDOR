@@ -38,6 +38,7 @@ public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements Doc
     
     private String texto="HOla";
     private Documento d=new Documento();
+    private boolean b=true;
 
     
     public DocumentoCaptureStubImpl() throws RemoteException {
@@ -49,22 +50,27 @@ public class DocumentoCaptureStubImpl extends UnicastRemoteObject implements Doc
     @Override
     public String getTexto() throws DocumentoCaptureException {
 
-        texto=d.getTexto();
     //    System.out.println("texto: "+texto);
-        return texto;       
+        return texto=d.getTexto();
+        
+       
     }
     
+    @Override
+      public boolean notificarCambio() throws DocumentoCaptureException
+      {
+      return b;
+      }
     
     @Override
   public void setTexto(int Posicion,String texto) throws DocumentoCaptureException{
 
+      b=true;
         d.setTexto(Posicion,texto);
-        System.out.println("palabras "+texto);
+        System.out.println("\nPalabras "+texto);
         System.out.println("posicion "+Posicion);
-        
-       /* for(int i=0;i<pal.size();i++){
-        System.out.println("palabras"+pal.getClass().getName());
-        }*/
+      
+      
     }
 
     

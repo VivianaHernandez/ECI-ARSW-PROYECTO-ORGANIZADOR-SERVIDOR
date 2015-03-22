@@ -17,7 +17,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Documento
 {
     /*prueba*/
-    private String texto="Hola"; 
+    private String texto=""; 
      private final String defaultPath="/tmp/";
     
     public Documento() {
@@ -25,7 +25,7 @@ public class Documento
           
         initComponents();
        
-        jf.setSize(800,600);
+        jf.setSize(500,400);
         jf.setVisible(true);
       
        
@@ -128,11 +128,15 @@ public class Documento
     }             
     public void setTexto(int Posicion, String texto) {
         textArea.insert(texto, Posicion);
+     
         
     }
 
     public String getTexto() {
+        System.out.println("\nTexto en servidor "+textArea.getText());
         return textArea.getText();
+        
+        
     }
     
     
