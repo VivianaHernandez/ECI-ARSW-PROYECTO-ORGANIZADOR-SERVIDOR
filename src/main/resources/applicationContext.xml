@@ -7,12 +7,12 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
   
       
-    <bean id="documentoCaptureStub" class="edu.eci.arsw.lab.Server.DocumentoCaptureStubImpl"></bean>
+    <bean id="calendarioCaptureStub" class="edu.eci.arsw.Server.CalendarioCaptureStubImpl"></bean>
 
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
-        <property name="serviceName" value="documentoCaptureStub"/>
-        <property name="service" ref="documentoCaptureStub"/>
-        <property name="serviceInterface" value="edu.eci.arsw.lab.Server.DocumentoCaptureStub"/>
+        <property name="serviceName" value="calendarioCaptureStub"/>
+        <property name="service" ref="calendarioCaptureStub"/>
+        <property name="serviceInterface" value="edu.eci.arsw.Server.CalendarioCaptureStub"/>
         <property name="registryPort" value="3010"/>
     </bean>
     

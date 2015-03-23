@@ -1,5 +1,5 @@
 
-package edu.eci.arsw.lab.Server;
+package edu.eci.arsw.Server;
 
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -15,7 +15,7 @@ public class Documento
       }
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+                             
     private void initComponents() {
         jf=new JFrame();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();

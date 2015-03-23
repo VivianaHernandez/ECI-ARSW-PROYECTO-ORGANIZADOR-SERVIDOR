@@ -1,4 +1,4 @@
-package edu.eci.arsw.lab.Server;
+package edu.eci.arsw.Server;
 
 import edu.eci.arsw.utils.NetUtils;
 import java.net.ConnectException;
