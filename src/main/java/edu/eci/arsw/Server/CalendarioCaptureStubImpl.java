@@ -56,4 +56,14 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
 
         return t;
     }
+
+    @Override
+    public void enviarTColaborativa(TColaborativa tc) throws CalendarioCaptureException {
+        
+    }
+
+    @Override
+    public void enviarTInformativa(TInformativa tc) throws CalendarioCaptureException {
+       
+    }
 }
