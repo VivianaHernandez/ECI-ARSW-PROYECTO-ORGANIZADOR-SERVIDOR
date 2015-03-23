@@ -16,6 +16,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     
     private String texto;
     final private Documento d=new Documento();
+    final private TColaborativa t=new TColaborativa();
 
     public CalendarioCaptureStubImpl() throws RemoteException {
 		super();
@@ -39,7 +40,9 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
       Fecha fecha=new Fecha(12,04,2015);
       
       String descripcion="Tarea colabborativa de arsw";
-      TColaborativa t=new TColaborativa(fecha,nombre, descripcion);
+      t.setDescripcion(descripcion);
+      t.setFecha(fecha);
+      t.setNombre(nombre);
       
   return t;
     }
