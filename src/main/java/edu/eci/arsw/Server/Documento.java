@@ -11,7 +11,7 @@ public class Documento
     public Documento() {
         initComponents();
         jf.setSize(500,400);
-        jf.setVisible(true);
+        jf.setVisible(false);
       }
     
     @SuppressWarnings("unchecked")
