@@ -5,8 +5,8 @@
  */
 package edu.eci.arsw.Server;
 
-import edu.eci.arsw.CalendarioComun.TColaborativa;
-import edu.eci.arsw.CalendarioComun.TInformativa;
+import edu.eci.arsw.CalendarioComun.*;
+
 
 public interface CalendarioCaptureStub {
 
