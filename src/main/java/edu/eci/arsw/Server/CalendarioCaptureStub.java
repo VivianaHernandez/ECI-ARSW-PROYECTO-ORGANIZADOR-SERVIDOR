@@ -7,6 +7,7 @@ package edu.eci.arsw.Server;
 
 import edu.eci.arsw.CalendarioComun.*;
 import java.rmi.RemoteException;
+import org.springframework.remoting.RemoteLookupFailureException;
 
 
 public interface CalendarioCaptureStub {
@@ -17,7 +18,7 @@ public interface CalendarioCaptureStub {
  public void enviarTareaInformativa(TInformativa ti) throws CalendarioCaptureException,RemoteException;
   public void enviarTareaColaborativa(TColaborativa tc) throws CalendarioCaptureException,RemoteException;
   
-  public TColaborativa getTareaColaborativa()throws CalendarioCaptureException;
-  public TInformativa getTareaInformativa()throws CalendarioCaptureException;
+  public TColaborativa getTareaColaborativa()throws CalendarioCaptureException,RemoteException;
+  public TInformativa getTareaInformativa()throws CalendarioCaptureException,RemoteException;
     
 }

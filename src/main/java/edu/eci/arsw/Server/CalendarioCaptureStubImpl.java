@@ -11,6 +11,7 @@ import edu.eci.arsw.CalendarioComun.TInformativa;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
+import org.springframework.remoting.RemoteLookupFailureException;
 
 public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements CalendarioCaptureStub {
 
@@ -34,7 +35,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     }
 
     @Override
-    public TColaborativa getTareaColaborativa() throws CalendarioCaptureException {
+    public TColaborativa getTareaColaborativa() throws CalendarioCaptureException,RemoteException {
         String nombre = "Tarea colabol arsw";
         Fecha fecha = new Fecha(12, 04, 2015);
 
@@ -48,7 +49,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     }
 
     @Override
-    public TInformativa getTareaInformativa() throws CalendarioCaptureException {
+    public TInformativa getTareaInformativa() throws CalendarioCaptureException,RemoteException {
         String nombre = "Tarea informativa arsw";
         Fecha f = new Fecha(4, 5, 6);
         String descripcion = "Tarea informativa de arsw ";
