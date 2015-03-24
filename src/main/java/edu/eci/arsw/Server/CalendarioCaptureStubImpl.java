@@ -58,16 +58,19 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     }
 
     @Override
-    public void enviarTColaborativa(TColaborativa tc) throws CalendarioCaptureException {
-        System.out.println("Nombre: "+tc.getNombre());
-        System.out.println("descripcion: "+tc.getDesripcion());
-        System.out.println("Fecha: "+tc.getFecha().getDia());
-    }
-
-    @Override
-    public void enviarTInformativa(TInformativa ti) throws CalendarioCaptureException {
+    public void enviarTareaInformativa(TInformativa ti) throws CalendarioCaptureException, RemoteException {
+        System.out.println("desde servidro********* ");
         System.out.println("Nombre: " + ti.getNombre());
         System.out.println("descripcion: " + ti.getDesripcion());
         System.out.println("Fecha: " + ti.getFecha().getDia());
+   
+    }
+
+    @Override
+    public void enviarTareaColaborativa(TColaborativa tc) throws CalendarioCaptureException, RemoteException {
+   System.out.println("Nombre: "+tc.getNombre());
+        System.out.println("descripcion: "+tc.getDesripcion());
+        System.out.println("Fecha: "+tc.getFecha().getDia());
+   
     }
 }
