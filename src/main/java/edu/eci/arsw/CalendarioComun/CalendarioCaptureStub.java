@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.Server;
+package edu.eci.arsw.CalendarioComun;
 
-import edu.eci.arsw.CalendarioComun.*;
 import java.rmi.RemoteException;
-import org.springframework.remoting.RemoteLookupFailureException;
+import java.util.ArrayList;
 
-
-public interface CalendarioCaptureStub {
-
+public interface CalendarioCaptureStub 
+{
   public String getTexto() throws CalendarioCaptureException;
   public void setTexto(int Posicion,String texto) throws CalendarioCaptureException;
   
- public void enviarTareaInformativa(TInformativa ti) throws CalendarioCaptureException,RemoteException;
+  public void enviarTareaInformativa(TInformativa ti) throws CalendarioCaptureException,RemoteException;
   public void enviarTareaColaborativa(TColaborativa tc) throws CalendarioCaptureException,RemoteException;
   
-  public TColaborativa getTareaColaborativa()throws CalendarioCaptureException,RemoteException;
-  public TInformativa getTareaInformativa()throws CalendarioCaptureException,RemoteException;
-    
+  public ArrayList<TColaborativa> getTareaColaborativa()throws CalendarioCaptureException,RemoteException;
+  public ArrayList<TInformativa> getTareaInformativa()throws CalendarioCaptureException,RemoteException;
 }

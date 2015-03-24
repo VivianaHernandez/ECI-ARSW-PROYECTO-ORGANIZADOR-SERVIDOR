@@ -4,14 +4,14 @@ package edu.eci.arsw.Server;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 
-public class Documento
+public class DocumentoServidor
 {
     private final String texto=""; 
     
-    public Documento() {
+    public DocumentoServidor() {
         initComponents();
         jf.setSize(500,400);
-        jf.setVisible(false);
+        jf.setVisible(true);
       }
     
     @SuppressWarnings("unchecked")
@@ -74,7 +74,7 @@ public class Documento
           try {
             //mec.Guardar(evt, textArea, defaultPath);
         } catch (Exception ex) {
-            Logger.getLogger(Documento.class.getName()).log(null, null, ex);
+            Logger.getLogger(DocumentoServidor.class.getName()).log(null, null, ex);
         }
     }                                            
 
@@ -82,7 +82,7 @@ public class Documento
         try {
             //mec.cargar(textArea, defaultPath);
         } catch (Exception ex) {
-            Logger.getLogger(Documento.class.getName()).log(null, null, ex);
+            Logger.getLogger(DocumentoServidor.class.getName()).log(null, null, ex);
         }
     }                                            
 

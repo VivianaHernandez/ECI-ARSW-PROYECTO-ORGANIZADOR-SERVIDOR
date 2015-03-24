@@ -12,7 +12,7 @@
     <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
         <property name="serviceName" value="calendarioCaptureStub"/>
         <property name="service" ref="calendarioCaptureStub"/>
-        <property name="serviceInterface" value="edu.eci.arsw.Server.CalendarioCaptureStub"/>
+        <property name="serviceInterface" value="edu.eci.arsw.CalendarioComun.CalendarioCaptureStub"/>
         <property name="registryPort" value="3010"/>
     </bean>
     

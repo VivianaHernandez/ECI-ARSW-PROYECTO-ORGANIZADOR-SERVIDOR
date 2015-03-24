@@ -5,19 +5,21 @@
  */
 package edu.eci.arsw.Server;
 
+import edu.eci.arsw.CalendarioComun.CalendarioCaptureException;
+import edu.eci.arsw.CalendarioComun.CalendarioCaptureStub;
 import edu.eci.arsw.CalendarioComun.Fecha;
 import edu.eci.arsw.CalendarioComun.TColaborativa;
 import edu.eci.arsw.CalendarioComun.TInformativa;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Date;
-import org.springframework.remoting.RemoteLookupFailureException;
+import java.util.ArrayList;
 
 public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements CalendarioCaptureStub {
 
     private String texto;
-    final private Documento d = new Documento();
-    private TColaborativa t;//=new TColaborativa();
+    final private DocumentoServidor d = new DocumentoServidor();
+    final private TareaServidor ts=new TareaServidor();
+    private TColaborativa t;
 
     public CalendarioCaptureStubImpl() throws RemoteException {
         super();
@@ -35,7 +37,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     }
 
     @Override
-    public TColaborativa getTareaColaborativa() throws CalendarioCaptureException,RemoteException {
+    public ArrayList<TColaborativa> getTareaColaborativa() throws CalendarioCaptureException,RemoteException {
         String nombre = "Tarea colabol arsw";
         Fecha fecha = new Fecha(12, 04, 2015);
 
@@ -45,33 +47,40 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
         t.setFecha(fecha);
         t.setNombre(nombre);
 
-        return t;
+        return ts.getListaTColaborativas();
     }
 
     @Override
-    public TInformativa getTareaInformativa() throws CalendarioCaptureException,RemoteException {
+    public ArrayList<TInformativa> getTareaInformativa() throws CalendarioCaptureException,RemoteException {
+        
         String nombre = "Tarea informativa arsw";
         Fecha f = new Fecha(4, 5, 6);
         String descripcion = "Tarea informativa de arsw ";
         TInformativa t = new TInformativa(f, nombre, descripcion);
-
-        return t;
+        
+        return ts.getListaTInformativas();
     }
 
     @Override
     public void enviarTareaInformativa(TInformativa ti) throws CalendarioCaptureException, RemoteException {
+      
+      ts.adicionarTareaInformativa(ti);
+        
         System.out.println("desde servidro********* ");
         System.out.println("Nombre: " + ti.getNombre());
-        System.out.println("descripcion: " + ti.getDesripcion());
+        System.out.println("descripcion: " + ti.getDescripcion());
         System.out.println("Fecha: " + ti.getFecha().getDia());
    
     }
 
     @Override
     public void enviarTareaColaborativa(TColaborativa tc) throws CalendarioCaptureException, RemoteException {
-   System.out.println("Nombre: "+tc.getNombre());
-        System.out.println("descripcion: "+tc.getDesripcion());
-        System.out.println("Fecha: "+tc.getFecha().getDia());
+        
+        ts.adicionarTareaColaborativa(tc);
+        
+        System.out.println("Nombre: " + tc.getNombre());
+        System.out.println("descripcion: " + tc.getDesripcion());
+        System.out.println("Fecha: " + tc.getFecha().getDia());
    
     }
 }
