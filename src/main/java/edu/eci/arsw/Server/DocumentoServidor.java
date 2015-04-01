@@ -37,6 +37,11 @@ public class DocumentoServidor
         textjsp.setViewportView(textArea);
 
         jf.getContentPane().add(textjsp, java.awt.BorderLayout.CENTER);
+        
+        for(int i=0;i<100;i++){
+       textArea.insert(" ",i);}
+        
+        
         jMenu1.setText("File");
         
         saveMenuItem.setText("save");
@@ -94,6 +99,7 @@ public class DocumentoServidor
     }
 
     public String getTexto() {
+       System.out.println("LLega aqui33333333333333333333333333333333333333333333333");
         return textArea.getText();
     }
     

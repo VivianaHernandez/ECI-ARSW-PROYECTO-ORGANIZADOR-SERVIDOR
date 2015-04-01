@@ -39,12 +39,12 @@ public class TColaborativa implements Serializable{
         this.fecha = fecha;
     }
 
-    public String getDesripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDesripcion(String desripcion) {
-        this.descripcion = desripcion;
+    public void setDesripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     
       public void setDoc(Documento doc) {

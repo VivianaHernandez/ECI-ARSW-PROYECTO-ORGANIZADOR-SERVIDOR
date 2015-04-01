@@ -79,7 +79,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
         ts.adicionarTareaColaborativa(tc);
         
         System.out.println("Nombre: " + tc.getNombre());
-        System.out.println("descripcion: " + tc.getDesripcion());
+        System.out.println("descripcion: " + tc.getDescripcion());
         System.out.println("Fecha: " + tc.getFecha().getDia());
    
     }
