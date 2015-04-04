@@ -20,6 +20,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     final private DocumentoServidor d = new DocumentoServidor();
     final private TareaServidor ts=new TareaServidor();
     private TColaborativa t;
+    public boolean estado=false;
 
     public CalendarioCaptureStubImpl() throws RemoteException {
         super();
@@ -82,5 +83,19 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
         System.out.println("descripcion: " + tc.getDescripcion());
         System.out.println("Fecha: " + tc.getFecha().getDia());
    
+    }
+
+    @Override
+    public void notificarCambio(boolean cambio) throws CalendarioCaptureException {
+      
+        this.estado=cambio;
+         System.out.println("Notifico estado: "+estado);
+    }
+
+    @Override
+    public boolean estadoCambio() throws CalendarioCaptureException {
+      
+        System.out.println("estado: "+estado);
+        return estado; 
     }
 }

@@ -5,85 +5,109 @@
  */
 package edu.eci.arsw.CalendarioComun;
 
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.text.BadLocationException;
 
-public class Documento {
+public class Documento implements Serializable{
 
     static String palabras="";
     static boolean b=true;
     static String text;
     static String nuevo="";
     static int pos;
+    public boolean estado=true;
+    static CalendarioCaptureStub calendarioCaptureStub;
     
-    public Documento(final CalendarioCaptureStub calendarioCaptureStub) throws BadLocationException
-    {
-         initComponents();
-        jf.setSize(600,400);
+    public Documento(final CalendarioCaptureStub calendarioCaptureStub) throws BadLocationException, CalendarioCaptureException {
+        this.calendarioCaptureStub = calendarioCaptureStub;
+        initComponents();
+        jf.setSize(600, 400);
         jf.setTitle("Aplicacion del cliente");
         jf.setVisible(true);
-        
-        textArea.addCaretListener(new CaretListener(){
-        
-                @Override
-                public void caretUpdate(CaretEvent e){
-               
-               int pos=e.getDot(),longi=1;
-               text=textArea.getText();
-              
-                    try {
-                        nuevo = textArea.getText(pos-1,longi);
-                       
-                    } catch (BadLocationException ex) {
-                        Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-                    } 
-                    try {
-                        calendarioCaptureStub.setTexto(pos,nuevo);
-                    } catch (CalendarioCaptureException ex) {
-                        Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+
+        textArea.addCaretListener(new CaretListener() {
+
+            @Override
+            public void caretUpdate(CaretEvent e) {
+
+                int pos = e.getDot(), longi = 1;
+                text = textArea.getText();
+
+                try {
+                    nuevo = textArea.getText(pos - 1, longi);
+
+                } catch (BadLocationException ex) {
+                    Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
                 }
-        });
-       /* try {
-                     
-            while(b==true){
-              
-            palabras=calendarioCaptureStub.getTexto();
-                
-                        setTexto(palabras);
-                        jf.repaint();
+
+                try {
+                    calendarioCaptureStub.setTexto(pos, nuevo);
+                } catch (CalendarioCaptureException ex) {
+                    Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            palabras = calendarioCaptureStub.getTexto();
+
+                            setTexto(palabras);
+                           
+
+                        } catch (BadLocationException ex) {
+                            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (CalendarioCaptureException ex) {
+                            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+
             }
-                    } catch (CalendarioCaptureException ex) {
-                        Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+        });
+
+        palabras = calendarioCaptureStub.getTexto();
+
+                            setTexto(palabras);
+        
+        
     }
-    
+
+
     
     public static void setTexto(String texto) throws BadLocationException
     {
+ System.out.println("tamaño s "+texto.length());
+ int tams=texto.length()-200;
     String s=texto;
      int uu=1,i;
      char w;
-  System.out.println("llega a set Textoooooooooooooooooo");
-        for (i = 0; i < s.length(); i++) {
+    
+   if(s.length()>0){
+  for (i = 0; i < tams; i++) {
             w = s.charAt(i);
             String ww = w + "";
             String a = textArea.getText(i, uu);
-System.out.println("llega a if equalsssssssssss");
+
             if (!ww.equals(a)) {
-                
+               
+                System.out.println("va a insertar:"+ww+".. En"+i);
                 textArea.insert(ww, i);
+               
             }
         }
-   if(s.length()>0){
-     for(i=s.length();i<100;i++)
+  
+     for(int j=tams;j<100;j++)
      {
-     textArea.insert(" ", i);
+     textArea.insert(" ", j);
      }}
+   
+    jf.repaint();
     
     }
  
@@ -102,6 +126,11 @@ System.out.println("llega a if equalsssssssssss");
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
+    
+    public void setVisibles(boolean estado)
+    {
+    jf.setVisible(estado);
+    }
     
     public static void initComponents() {
 

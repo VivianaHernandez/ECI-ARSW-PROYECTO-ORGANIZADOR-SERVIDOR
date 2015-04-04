@@ -38,8 +38,8 @@ public class DocumentoServidor
 
         jf.getContentPane().add(textjsp, java.awt.BorderLayout.CENTER);
         
-        for(int i=0;i<100;i++){
-       textArea.insert(" ",i);}
+        /*for(int i=0;i<100;i++){
+       textArea.insert(" ",i);}*/
         
         
         jMenu1.setText("File");
@@ -95,11 +95,13 @@ public class DocumentoServidor
         System.exit(0);
     }             
     public void setTexto(int posicion, String tex) {
-        textArea.insert(tex, posicion);
+          System.out.println("\nPosicion:."+posicion+"."); 
+          System.out.println("Texto:."+tex+".");
+          textArea.insert(tex, posicion);
     }
 
     public String getTexto() {
-       System.out.println("LLega aqui33333333333333333333333333333333333333333333333");
+       System.out.println("Tamaño "+textArea.getText().length()+"****************************");
         return textArea.getText();
     }
     
