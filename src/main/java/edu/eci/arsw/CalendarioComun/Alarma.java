@@ -10,7 +10,12 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import java.applet.AudioClip;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 /**
  *
  * @author Torres
@@ -19,6 +24,7 @@ public class Alarma implements Serializable{
 
     private Date fechaTarea;
     private boolean activo;
+    
 
     public Alarma(Date fechaTarea) {
         this.fechaTarea = fechaTarea;
@@ -37,28 +43,29 @@ public class Alarma implements Serializable{
         return fechaTarea;
     }
 
-    public void activar() {
-        Date fechaSis = new Date();
-        JFrame jf=new JFrame();
-        System.out.println("que sale en fecha"+fechaSis.compareTo(fechaTarea) );
-        if (fechaSis.compareTo(fechaTarea) >= 0 ) {
-            if (!activo) {
-                activo = true;
-                String[] options = {"Posponer", "Desactivar"};
-                int seleccion = JOptionPane.showOptionDialog(null, "Es necesario que seleccione una opcion", "Titulo", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                System.out.println("QUE SALE "+seleccion);
-                Toolkit.getDefaultToolkit().beep();
-                
-                if(seleccion==1){
-                    desactivar();
-                }else{
-                    Date nuevaF= new Date();
-                    nuevaF.setMinutes(nuevaF.getMinutes()+10);
-                    this.setFechaTarea(nuevaF);
-                    System.out.println("LA FECHA DESPUES ES :"+nuevaF);
-                }
+    public void activar() throws FileNotFoundException, JavaLayerException {
+        
+          if (!activo) {
+            activo = true;
+            AudioClip sonido;
+            FileInputStream fis;
+            Player player;
+            //fis = new FileInputStream("C:\\Users\\Torres\\Music\\Songr\\miverdad.mp3");
+            fis = new FileInputStream("C:\\Users\\Torres\\Music\\Songr\\miverdad.mp3");
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            player = new Player(bis);
+            player.play();
+            String[] options = {"Desactivar"};
+
+            int seleccion = JOptionPane.showOptionDialog(null, "La alarma está sonando ¿desea desactivarla?", "La alarma está sonando", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+
+            System.out.println("QUE SALE " + seleccion);
+
+            if (seleccion == 0) {
+                desactivar();
             }
         }
+        
     }
 
     /*public static void main(String[] args) {
