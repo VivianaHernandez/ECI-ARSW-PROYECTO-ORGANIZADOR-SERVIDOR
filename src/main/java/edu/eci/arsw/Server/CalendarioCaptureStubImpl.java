@@ -98,4 +98,14 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
         System.out.println("estado: "+estado);
         return estado; 
     }
+
+    @Override
+    public void ModificarDatosTareaI(TInformativa ti) throws CalendarioCaptureException, RemoteException {
+     ts.modificarTareaI(ti);
+    }
+
+    @Override
+    public void ModificarDatosTareaC(TColaborativa tc) throws CalendarioCaptureException, RemoteException {
+     ts.modificarTareaC(tc);   
+    }
 }
