@@ -34,6 +34,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
 
     @Override
     public void setTexto(int Posicion, String texto) throws CalendarioCaptureException {
+        d.setVisibles(true);
         d.setTexto(Posicion, texto);
     }
 

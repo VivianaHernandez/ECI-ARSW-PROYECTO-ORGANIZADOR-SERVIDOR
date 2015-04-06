@@ -9,12 +9,12 @@ public class DocumentoServidor
     
     public DocumentoServidor() {
         initComponents();
-        jf.setSize(500,400);
-        jf.setVisible(true);
+        jf.setSize(500,400);    
       }
     
     @SuppressWarnings("unchecked")
-                             
+        
+    
     private void initComponents() {
         jf=new JFrame();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
@@ -34,7 +34,13 @@ public class DocumentoServidor
     }
 
     public String getTexto() {
+     
         return textArea.getText();
+    }
+    
+    public void setVisibles(boolean est)
+    {
+    jf.setVisible(est);
     }
     
     private javax.swing.JFrame jf;

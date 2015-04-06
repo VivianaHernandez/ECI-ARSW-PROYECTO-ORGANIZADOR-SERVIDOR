@@ -11,10 +11,6 @@ import edu.eci.arsw.CalendarioComun.TInformativa;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Viviana
- */
 public class TareaServidor {
 
     ArrayList<TColaborativa> listaTColaborativas = new ArrayList<TColaborativa>();
@@ -47,8 +43,7 @@ public class TareaServidor {
                 listaTInformativas.get(i).setNombre(ti.getNombre());
                 listaTInformativas.get(i).setDescripcion(ti.getDescripcion());
             }
-            else{
-            System.out.println("No contiene");}
+          
         }
     }
 
@@ -60,10 +55,7 @@ public class TareaServidor {
                 listaTColaborativas.get(i).setNombre(tc.getNombre());
                 listaTColaborativas.get(i).setDesripcion(tc.getDescripcion());
             }
-            else
-            {
-            System.out.println("No contiene");
-            }
+       
         }
         
         
