@@ -34,7 +34,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
 
     @Override
     public void setTexto(int Posicion, String texto) throws CalendarioCaptureException {
-        d.setVisibles(true);
+        
         d.setTexto(Posicion, texto);
     }
 
@@ -79,10 +79,7 @@ public class CalendarioCaptureStubImpl extends UnicastRemoteObject implements Ca
     public void enviarTareaColaborativa(TColaborativa tc) throws CalendarioCaptureException, RemoteException {
         
         ts.adicionarTareaColaborativa(tc);
-        
-        System.out.println("Nombre: " + tc.getNombre());
-        System.out.println("descripcion: " + tc.getDescripcion());
-        System.out.println("Fecha: " + tc.getFecha().getDia());
+       d.setVisibles(true);
    
     }
 
